@@ -28,6 +28,7 @@ set(1.getting_started
     2.1.hello_triangle
     2.1.hello_triangle2
     2.2.hello_triangle_indexed
+    2.2.hello_triangle_indexed2
 )
 
 # then create a project file per tutorial
