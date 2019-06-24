@@ -25,6 +25,7 @@ set(CHAPTERS
 set(1.getting_started
     1.1.hello_window
     1.2.hello_window_clear
+    2.1.hello_triangle
 )
 
 # then create a project file per tutorial
