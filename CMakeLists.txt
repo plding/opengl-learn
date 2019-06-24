@@ -8,6 +8,7 @@ find_package(OpenGL REQUIRED)
 find_package(GLFW3 REQUIRED)
 find_package(GLM REQUIRED)
 
+include_directories(${CMAKE_SOURCE_DIR}/includes)
 include_directories(/usr/local/include)
 include_directories(/usr/local/Cellar/glew/2.1.0/include)
 
@@ -30,6 +31,8 @@ set(1.getting_started
     2.2.hello_triangle_indexed
     2.2.hello_triangle_indexed2
     3.1.shaders_uniform
+    3.2.shaders_interpolation
+    3.3.shaders_class
 )
 
 # then create a project file per tutorial
@@ -42,5 +45,14 @@ foreach(CHAPTER ${CHAPTERS})
         set(NAME "${CHAPTER}__${DEMO}")
         add_executable(${NAME} ${SOURCE})
         target_link_libraries(${NAME} ${LIBS})
+        set_target_properties(${NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/${CHAPTER})
+        # copy shader files to build directory
+        file(GLOB SHADERS
+            "src/${CHAPTER}/${DEMO}/*.vs"
+            "src/${CHAPTER}/${DEMO}/*.fs"
+        )
+        foreach(SHADER ${SHADERS})
+            file(COPY ${SHADER} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/${CHAPTER})
+        endforeach(SHADER)
     endforeach(DEMO)
 endforeach(CHAPTER)
