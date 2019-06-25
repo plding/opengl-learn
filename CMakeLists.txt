@@ -31,8 +31,11 @@ set(1.getting_started
     2.2.hello_triangle_indexed
     2.2.hello_triangle_indexed2
     3.1.shaders_uniform
+    3.1.shaders_uniform2
     3.2.shaders_interpolation
+    3.2.shaders_interpolation2
     3.3.shaders_class
+    3.3.shaders_class2
 )
 
 # then create a project file per tutorial
