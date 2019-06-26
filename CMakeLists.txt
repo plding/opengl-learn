@@ -6,7 +6,6 @@ list(APPEND CMAKE_CXX_FLAGS "-std=c++11")
 # find the required packages
 find_package(OpenGL REQUIRED)
 find_package(GLFW3 REQUIRED)
-find_package(GLM REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR}/includes)
 include_directories(/usr/local/include)
@@ -14,7 +13,6 @@ include_directories(/usr/local/Cellar/glew/2.1.0/include)
 
 link_directories(/usr/local/Cellar/glew/2.1.0/lib)
 link_directories(/usr/local/Cellar/glfw/3.3/lib)
-link_directories(/usr/local/Cellar/glm/0.9.9.5/lib)
 
 find_library(OpenGL_LIBRARY OpenGL)
 set(LIBS ${OPENGL_LIBRARY} glew glfw)
@@ -40,6 +38,7 @@ set(1.getting_started
     4.1.textures2
     4.2.textures_combined
     4.2.textures_combined2
+    5.1.transformations
 )
 
 configure_file(configuration/root_directory.h.in configuration/root_directory.h)
