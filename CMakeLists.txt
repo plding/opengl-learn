@@ -19,6 +19,7 @@ set(LIBS ${OPENGL_LIBRARY} glew glfw)
 
 set(CHAPTERS
     1.getting_started
+    2.lighting
 )
 
 set(1.getting_started
@@ -48,12 +49,19 @@ set(1.getting_started
     7.4.camera_class
 )
 
+set(2.lighting
+    1.colors
+)
+
 configure_file(configuration/root_directory.h.in configuration/root_directory.h)
 include_directories(${CMAKE_BINARY_DIR}/configuration)
 
 # first create relevant static libraries required for other projects
 add_library(STB_IMAGE "src/stb_image.cpp")
 set(LIBS ${LIBS} STB_IMAGE)
+
+add_library(GLAD "src/glad.c")
+set(LIBS ${LIBS} GLAD)
 
 # then create a project file per tutorial
 foreach(CHAPTER ${CHAPTERS})
